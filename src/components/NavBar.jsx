@@ -3,12 +3,16 @@ import { Navbar, Nav, Container, Image, NavDropdown } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
 import { logoutUser } from "../actions/userAction";
+import {useEffect} from "react"
 import {SiTrendmicro} from "react-icons/si"
 const NavBar = () => {
   const dispatch = useDispatch();
   const cartState = useSelector((state) => state.cartReducer);
   const userState = useSelector((state) => state.loginUserReducer);
   const { currentUser } = userState;
+
+   
+
   return (
     <>
       <Navbar collapseOnSelect expand="lg" style={{backgroundColor: "#B3E5FC",color:"black"}}>
@@ -50,12 +54,20 @@ const NavBar = () => {
                   <LinkContainer to="/register">
                     <Nav.Link>Register</Nav.Link>
                   </LinkContainer>{" "}
-                </>
+               
+                 
+                  
+                
+                 </>
               )}
-
+            <LinkContainer to="/admin" id="admin">
+                  <Nav.Link>admin</Nav.Link>
+                </LinkContainer>
               <LinkContainer to="/cart">
                 <Nav.Link>Cart {cartState.cartItems.length}</Nav.Link>
               </LinkContainer>
+             
+           
             </Nav>
           </Navbar.Collapse>
         </Container>
