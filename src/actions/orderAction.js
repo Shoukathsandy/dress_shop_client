@@ -15,7 +15,7 @@ export const placeOrder = (token, subTotal) => async (dispatch, getState) => {
     dispatch({ type: "PLACE_ORDER_SUCCESS" });
     // console.log(res);
     localStorage.removeItem("cartItems");
-    // window.location.reload();
+    window.location.reload();
   } catch (error) {
     dispatch({ type: "PLACE_ORDER_FAIL" });
     console.log(error);
